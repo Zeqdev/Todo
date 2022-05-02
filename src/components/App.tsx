@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MdDelete } from 'react-icons/md';
 import { ImCheckboxChecked, ImCheckboxUnchecked } from 'react-icons/im';
 import './App.css';
@@ -12,6 +12,25 @@ interface Todos {
 export function App() {
 	const [input, setInput] = useState<string>('');
 	const [todos, setTodo] = useState<Todos[]>([]);
+
+	useEffect(() => {
+		const getLocalTodos = () => {
+			if (localStorage.getItem('todos') === null) {
+				localStorage.setItem('todos', JSON.stringify([]));
+			} else {
+				let localTodos = JSON.parse(localStorage.getItem('todos')!);
+				setTodo(localTodos);
+			}
+		};
+		getLocalTodos();
+	}, []);
+
+	useEffect(() => {
+		const saveLocalTodos = () => {
+			localStorage.setItem('todos', JSON.stringify(todos));
+		};
+		saveLocalTodos();
+	}, [todos]);
 
 	const addTask = (e: React.KeyboardEvent<HTMLInputElement>) => {
 		if (e.key === 'Enter' && input.length !== 0) {
