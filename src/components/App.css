@@ -26,6 +26,36 @@
 	border-radius: 10px;
 }
 
+.todo-list {
+	margin-top: 50px;
+}
+
+.todo-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	width: 70%;
+
+	overflow-x: auto;
+
+	margin: 0 auto;
+	padding: 10px;
+}
+
+.todo-txt {
+	color: #131339;
+	font-size: 1.2rem;
+}
+
+.actions {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	cursor: pointer;
+}
+
 @media (max-width: 576px) {
 	.title {
 		font-size: 2rem;

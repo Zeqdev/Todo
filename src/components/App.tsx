@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { MdDelete } from 'react-icons/md';
 import './App.css';
 
 interface Todos {
@@ -24,6 +25,11 @@ export function App() {
 		}
 	};
 
+	const rmTask = (id: number) => {
+		const rmTask = todos.filter(item => item.id !== id);
+		setTodo(rmTask);
+	};
+
 	return (
 		<>
 			<header>
@@ -37,6 +43,22 @@ export function App() {
 					onKeyPress={addTask}
 				/>
 			</header>
+			<main className='todo-list'>
+				{todos.map(item => {
+					return (
+						<div className='todo-item' key={item.id}>
+							<div className='todo-txt'>{item.body}</div>
+							<div className='actions'>
+								<MdDelete
+									size={20}
+									className='btn-delete'
+									onClick={() => rmTask(item.id)}
+								/>
+							</div>
+						</div>
+					);
+				})}
+			</main>
 		</>
 	);
 }
