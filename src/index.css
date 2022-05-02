@@ -4,6 +4,26 @@
 	box-sizing: border-box;
 }
 
+#root {
+	background: #f1f4fd;
+
+	height: 90vh;
+	margin: 0 10px;
+
+	overflow: hidden;
+
+	border-radius: 2rem;
+	box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+		rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
 body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
 	font-family: sans-serif;
+
+	background: #f1f4fd;
+	min-height: 100vh;
 }

@@ -1,0 +1,37 @@
+.title {
+	font-family: 'Permanent Marker', cursive;
+	font-size: 2.5rem;
+	text-align: center;
+
+	background: linear-gradient(to right, #f32170, #9023cf, #00056e);
+	-webkit-text-fill-color: transparent;
+	-webkit-background-clip: text;
+
+	padding: 20px;
+}
+
+.input {
+	display: block;
+
+	font-size: 1.2rem;
+
+	width: 70%;
+
+	padding: 10px;
+	margin: 0 auto;
+
+	outline: none;
+
+	border: 2px solid #131339;
+	border-radius: 10px;
+}
+
+@media (max-width: 576px) {
+	.title {
+		font-size: 2rem;
+	}
+
+	.input {
+		width: 80%;
+	}
+}
