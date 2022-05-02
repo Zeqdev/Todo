@@ -56,12 +56,24 @@
 	cursor: pointer;
 }
 
+.btn-complete {
+	margin-right: 5px;
+}
+
+.btn-delete {
+	margin-left: 5px;
+}
+
 @media (max-width: 576px) {
 	.title {
 		font-size: 2rem;
 	}
 
 	.input {
+		width: 80%;
+	}
+
+	.todo-list {
 		width: 80%;
 	}
 }

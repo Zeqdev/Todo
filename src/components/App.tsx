@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MdDelete } from 'react-icons/md';
+import { ImCheckboxChecked, ImCheckboxUnchecked } from 'react-icons/im';
 import './App.css';
 
 interface Todos {
@@ -30,6 +31,20 @@ export function App() {
 		setTodo(rmTask);
 	};
 
+	const isComplete = (id: number) => {
+		setTodo(
+			todos.map(item => {
+				if (item.id === id) {
+					return {
+						...item,
+						complete: !item.complete,
+					};
+				}
+				return item;
+			})
+		);
+	};
+
 	return (
 		<>
 			<header>
@@ -49,6 +64,19 @@ export function App() {
 						<div className='todo-item' key={item.id}>
 							<div className='todo-txt'>{item.body}</div>
 							<div className='actions'>
+								{item.complete === false ? (
+									<ImCheckboxUnchecked
+										size={20}
+										className='btn-complete'
+										onClick={() => isComplete(item.id)}
+									/>
+								) : (
+									<ImCheckboxChecked
+										size={20}
+										className='btn-complete'
+										onClick={() => isComplete(item.id)}
+									/>
+								)}
 								<MdDelete
 									size={20}
 									className='btn-delete'
